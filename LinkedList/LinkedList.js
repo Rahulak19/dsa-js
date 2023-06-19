@@ -158,6 +158,17 @@ class SinglyLinkedList{
         node=next;
     }
    }
+    isPalindrome() {
+    let string1="",string2 ="";
+    let node = this.head;
+    
+      while(node != null){
+          string1 = `${string1}${node.data}`;
+          string2 = `${node.data}${string2}`;
+          node = node.next;
+      }
+      return string1 === string2;
+  }
 }
 
 var list=new SinglyLinkedList();
@@ -175,4 +186,5 @@ list.unshift(4);
 console.log(list.insert(2,9));
 //console.log(list.remove(1));
 list.reverse()
-console.log(list.print())
+list.print()
+list.isPalindrome()
