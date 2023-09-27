@@ -14,6 +14,19 @@ return nums;
 
 }
 
+function zertolef(arr){
+  j=arr.length-1;
+  for(let i=arr.length-1;i>=0;i--)
+  {
+    if(arr[i]!=0)
+    {
+      [arr[j],arr[i]]=[arr[i],arr[j]];
+      j--;
+    }
+  }
+  return arr;
+}
+
 function zeroToLeft(A)
 {
   if (A.length < 1) {
@@ -42,3 +55,4 @@ function zeroToLeft(A)
 
 
 console.log(zeroToLeft(nums))
+console.log(zertolef(nums))
