@@ -24,14 +24,14 @@ Array.prototype.myMap=function(callback){
 }
 // eg for array.reduce
 
-Array.prototype.myReduce=function(callback,initialValue=null){
-    let prev=initialValue;
-    for(let i=0;i<this.length;i++)
-    {
-        prev=callback(prev,this[i],i,this)
-    }
-    return prev;
-}
+// Array.prototype.myReduce=function(callback,initialValue=null){
+//     let prev=initialValue;
+//     for(let i=0;i<this.length;i++)
+//     {
+//         prev=callback(prev,this[i],i,this)
+//     }
+//     return prev;
+// }
 
 // eg for array.forEach
 
@@ -41,4 +41,30 @@ Array.prototype.myForEach=function(callback){
         callback(this[i],i,this)
     }
 }
-arr.myForEach(val=>console.log(val))
+//arr.myForEach(val=>console.log(val))
+
+Array.prototype.myReduce=function(callback,initialValue=null){
+    let prev=initialValue;
+    for(let i=0;i<this.length;i++){
+        prev=callback(prev,this[i],i,this);
+    }
+    return prev;
+}
+
+function arrFlat(arr,depth=0){
+    let result=[];
+    for(let val of arr){
+        if(Array.isArray(val) && depth>0){
+            result.push(...arrFlat(val,depth-1))
+        } else{
+            result.push(val);
+        }
+       
+    }
+    return result;
+}
+
+let array=[[1,2],[2,3],[[5,6],8]];
+console.log(arrFlat(array,2))
+// let sum=arr.myReduce((acc,curr)=>acc+curr,10)
+// console.log(sum)

@@ -1,4 +1,4 @@
-let obj={a:1,b:["1",2,"@"],c:[],d:"hello"};
+let obj={a:1,b:["1",2,"@"],c:[],d:"hello",e:null,f:undefined};
 
 function deepCopy(obj){
     if(typeof obj !=='object' || obj===null)
